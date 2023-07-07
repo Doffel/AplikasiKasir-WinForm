@@ -30,21 +30,21 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            button1 = new Button();
-            button3 = new Button();
+            transaksi_btn = new Button();
+            harga_btn = new Button();
             label1 = new Label();
             tableLayoutPanel13 = new TableLayoutPanel();
-            button2 = new Button();
-            button4 = new Button();
+            gudang_btn = new Button();
+            etalase_btn = new Button();
             tableLayoutPanel3 = new TableLayoutPanel();
             Cek_Produk_Tx = new TextBox();
             Cek_Produk_Btn = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
             dataGridView1 = new DataGridView();
             tableLayoutPanel5 = new TableLayoutPanel();
-            btn_ubah = new Button();
-            btn_batal = new Button();
-            btn_hapus = new Button();
+            ubah_btn = new Button();
+            batal_btn = new Button();
+            hapus_btn = new Button();
             tableLayoutPanel6 = new TableLayoutPanel();
             button8 = new Button();
             button9 = new Button();
@@ -100,8 +100,8 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.Controls.Add(button1, 2, 0);
-            tableLayoutPanel2.Controls.Add(button3, 4, 0);
+            tableLayoutPanel2.Controls.Add(transaksi_btn, 2, 0);
+            tableLayoutPanel2.Controls.Add(harga_btn, 4, 0);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel13, 3, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
@@ -112,31 +112,32 @@
             tableLayoutPanel2.Size = new Size(1258, 96);
             tableLayoutPanel2.TabIndex = 0;
             // 
-            // button1
+            // transaksi_btn
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.DodgerBlue;
-            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(505, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(245, 90);
-            button1.TabIndex = 0;
-            button1.Text = "TRANSAKSI";
-            button1.UseVisualStyleBackColor = false;
+            transaksi_btn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            transaksi_btn.BackColor = Color.DodgerBlue;
+            transaksi_btn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            transaksi_btn.ForeColor = SystemColors.ButtonHighlight;
+            transaksi_btn.Location = new Point(505, 3);
+            transaksi_btn.Name = "transaksi_btn";
+            transaksi_btn.Size = new Size(245, 90);
+            transaksi_btn.TabIndex = 0;
+            transaksi_btn.Text = "TRANSAKSI";
+            transaksi_btn.UseVisualStyleBackColor = false;
+            transaksi_btn.Click += Transaksi_Click;
             // 
-            // button3
+            // harga_btn
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button3.BackColor = Color.DodgerBlue;
-            button3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(1007, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(248, 90);
-            button3.TabIndex = 2;
-            button3.Text = "CEK HARGA";
-            button3.UseVisualStyleBackColor = false;
+            harga_btn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            harga_btn.BackColor = Color.DodgerBlue;
+            harga_btn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            harga_btn.ForeColor = SystemColors.ButtonHighlight;
+            harga_btn.Location = new Point(1007, 3);
+            harga_btn.Name = "harga_btn";
+            harga_btn.Size = new Size(248, 90);
+            harga_btn.TabIndex = 2;
+            harga_btn.Text = "CEK HARGA";
+            harga_btn.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -155,8 +156,8 @@
             // 
             tableLayoutPanel13.ColumnCount = 1;
             tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel13.Controls.Add(button2, 0, 0);
-            tableLayoutPanel13.Controls.Add(button4, 0, 1);
+            tableLayoutPanel13.Controls.Add(gudang_btn, 0, 0);
+            tableLayoutPanel13.Controls.Add(etalase_btn, 0, 1);
             tableLayoutPanel13.Dock = DockStyle.Fill;
             tableLayoutPanel13.Location = new Point(756, 3);
             tableLayoutPanel13.Name = "tableLayoutPanel13";
@@ -166,32 +167,32 @@
             tableLayoutPanel13.Size = new Size(245, 90);
             tableLayoutPanel13.TabIndex = 4;
             // 
-            // button2
+            // gudang_btn
             // 
-            button2.BackColor = Color.RoyalBlue;
-            button2.Dock = DockStyle.Fill;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(239, 39);
-            button2.TabIndex = 0;
-            button2.Text = "STOK GUDANG";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            gudang_btn.BackColor = Color.RoyalBlue;
+            gudang_btn.Dock = DockStyle.Fill;
+            gudang_btn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            gudang_btn.ForeColor = SystemColors.ButtonHighlight;
+            gudang_btn.Location = new Point(3, 3);
+            gudang_btn.Name = "gudang_btn";
+            gudang_btn.Size = new Size(239, 39);
+            gudang_btn.TabIndex = 0;
+            gudang_btn.Text = "STOK GUDANG";
+            gudang_btn.UseVisualStyleBackColor = false;
+            gudang_btn.Click += button2_Click;
             // 
-            // button4
+            // etalase_btn
             // 
-            button4.BackColor = Color.RoyalBlue;
-            button4.Dock = DockStyle.Fill;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.ForeColor = SystemColors.ButtonHighlight;
-            button4.Location = new Point(3, 48);
-            button4.Name = "button4";
-            button4.Size = new Size(239, 39);
-            button4.TabIndex = 1;
-            button4.Text = "STOK ETALASE";
-            button4.UseVisualStyleBackColor = false;
+            etalase_btn.BackColor = Color.RoyalBlue;
+            etalase_btn.Dock = DockStyle.Fill;
+            etalase_btn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            etalase_btn.ForeColor = SystemColors.ButtonHighlight;
+            etalase_btn.Location = new Point(3, 48);
+            etalase_btn.Name = "etalase_btn";
+            etalase_btn.Size = new Size(239, 39);
+            etalase_btn.TabIndex = 1;
+            etalase_btn.Text = "STOK ETALASE";
+            etalase_btn.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel3
             // 
@@ -267,9 +268,9 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.Controls.Add(btn_ubah, 1, 0);
-            tableLayoutPanel5.Controls.Add(btn_batal, 2, 0);
-            tableLayoutPanel5.Controls.Add(btn_hapus, 0, 0);
+            tableLayoutPanel5.Controls.Add(ubah_btn, 1, 0);
+            tableLayoutPanel5.Controls.Add(batal_btn, 2, 0);
+            tableLayoutPanel5.Controls.Add(hapus_btn, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(3, 370);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -278,43 +279,43 @@
             tableLayoutPanel5.Size = new Size(745, 64);
             tableLayoutPanel5.TabIndex = 1;
             // 
-            // btn_ubah
+            // ubah_btn
             // 
-            btn_ubah.BackColor = Color.DeepSkyBlue;
-            btn_ubah.Dock = DockStyle.Fill;
-            btn_ubah.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ubah.ForeColor = SystemColors.ButtonHighlight;
-            btn_ubah.Location = new Point(251, 3);
-            btn_ubah.Name = "btn_ubah";
-            btn_ubah.Size = new Size(242, 58);
-            btn_ubah.TabIndex = 1;
-            btn_ubah.Text = "UBAH";
-            btn_ubah.UseVisualStyleBackColor = false;
+            ubah_btn.BackColor = Color.DeepSkyBlue;
+            ubah_btn.Dock = DockStyle.Fill;
+            ubah_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ubah_btn.ForeColor = SystemColors.ButtonHighlight;
+            ubah_btn.Location = new Point(251, 3);
+            ubah_btn.Name = "ubah_btn";
+            ubah_btn.Size = new Size(242, 58);
+            ubah_btn.TabIndex = 1;
+            ubah_btn.Text = "UBAH";
+            ubah_btn.UseVisualStyleBackColor = false;
             // 
-            // btn_batal
+            // batal_btn
             // 
-            btn_batal.BackColor = Color.DarkOrange;
-            btn_batal.Dock = DockStyle.Fill;
-            btn_batal.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_batal.Location = new Point(499, 3);
-            btn_batal.Name = "btn_batal";
-            btn_batal.Size = new Size(243, 58);
-            btn_batal.TabIndex = 2;
-            btn_batal.Text = "BATAL";
-            btn_batal.UseVisualStyleBackColor = false;
+            batal_btn.BackColor = Color.DarkOrange;
+            batal_btn.Dock = DockStyle.Fill;
+            batal_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            batal_btn.Location = new Point(499, 3);
+            batal_btn.Name = "batal_btn";
+            batal_btn.Size = new Size(243, 58);
+            batal_btn.TabIndex = 2;
+            batal_btn.Text = "BATAL";
+            batal_btn.UseVisualStyleBackColor = false;
             // 
-            // btn_hapus
+            // hapus_btn
             // 
-            btn_hapus.BackColor = Color.DarkRed;
-            btn_hapus.Dock = DockStyle.Fill;
-            btn_hapus.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_hapus.ForeColor = SystemColors.ButtonHighlight;
-            btn_hapus.Location = new Point(3, 3);
-            btn_hapus.Name = "btn_hapus";
-            btn_hapus.Size = new Size(242, 58);
-            btn_hapus.TabIndex = 0;
-            btn_hapus.Text = "HAPUS";
-            btn_hapus.UseVisualStyleBackColor = false;
+            hapus_btn.BackColor = Color.DarkRed;
+            hapus_btn.Dock = DockStyle.Fill;
+            hapus_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            hapus_btn.ForeColor = SystemColors.ButtonHighlight;
+            hapus_btn.Location = new Point(3, 3);
+            hapus_btn.Name = "hapus_btn";
+            hapus_btn.Size = new Size(242, 58);
+            hapus_btn.TabIndex = 0;
+            hapus_btn.Text = "HAPUS";
+            hapus_btn.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel6
             // 
@@ -549,8 +550,8 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button button1;
-        private Button button3;
+        private Button transaksi_btn;
+        private Button harga_btn;
         private Label label1;
         private TableLayoutPanel tableLayoutPanel3;
         private TextBox Cek_Produk_Tx;
@@ -558,9 +559,9 @@
         private TableLayoutPanel tableLayoutPanel4;
         private DataGridView dataGridView1;
         private TableLayoutPanel tableLayoutPanel5;
-        private Button btn_ubah;
-        private Button btn_batal;
-        private Button btn_hapus;
+        private Button ubah_btn;
+        private Button batal_btn;
+        private Button hapus_btn;
         private TableLayoutPanel tableLayoutPanel6;
         private Button button8;
         private Button button9;
@@ -577,7 +578,7 @@
         private TextBox textBox2;
         private Label label3;
         private TableLayoutPanel tableLayoutPanel13;
-        private Button button2;
-        private Button button4;
+        private Button gudang_btn;
+        private Button etalase_btn;
     }
 }

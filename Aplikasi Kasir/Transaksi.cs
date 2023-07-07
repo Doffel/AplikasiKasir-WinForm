@@ -32,18 +32,18 @@ namespace Aplikasi_Kasir
             {
                 // Set ukuran font pada label sesuai dengan kebutuhan
                 label1.Font = new Font(label1.Font.FontFamily, 32, FontStyle.Bold);
-                button1.Font = new Font(button1.Font.FontFamily, 18);
-                button3.Font = new Font(button1.Font.FontFamily, 18);
-                Cek_Produk_Btn.Font = new Font(button1.Font.FontFamily, 15);
+                transaksi_btn.Font = new Font(transaksi_btn.Font.FontFamily, 18);
+                harga_btn.Font = new Font(transaksi_btn.Font.FontFamily, 18);
+                Cek_Produk_Btn.Font = new Font(transaksi_btn.Font.FontFamily, 15);
                 Cek_Produk_Tx.Font = new Font(Cek_Produk_Tx.Font.FontFamily, 45);
             }
             else
             {
                 // Set ukuran font kembali ke ukuran default jika tidak sesuai ukuran form 1280x720
                 label1.Font = new Font(label1.Font.FontFamily, 50, FontStyle.Bold);
-                button1.Font = new Font(button1.Font.FontFamily, 24);
-                button3.Font = new Font(button1.Font.FontFamily, 24);
-                Cek_Produk_Btn.Font = new Font(button1.Font.FontFamily, 24);
+                transaksi_btn.Font = new Font(transaksi_btn.Font.FontFamily, 24);
+                harga_btn.Font = new Font(transaksi_btn.Font.FontFamily, 24);
+                Cek_Produk_Btn.Font = new Font(transaksi_btn.Font.FontFamily, 24);
                 Cek_Produk_Tx.Font = new Font(Cek_Produk_Tx.Font.FontFamily, 74);
                 label1.Padding = new Padding(5, 20, 0, 0);
             }
@@ -106,6 +106,18 @@ namespace Aplikasi_Kasir
         {
             StokGudang stokgudang = new StokGudang();
             stokgudang.Show();
+            this.Hide();
+        }
+
+        private void Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void etalase_btn_Click(object sender, EventArgs e)
+        {
+            StokEtalase st = new StokEtalase();
+            st.Show();
             this.Hide();
         }
     }

@@ -152,5 +152,6 @@ namespace Aplikasi_Kasir
 
             dataGridView1.DataSource = ds.Tables[0];
         }
+
     }
 }
