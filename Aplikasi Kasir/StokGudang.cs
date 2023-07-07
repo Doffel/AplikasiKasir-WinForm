@@ -14,7 +14,11 @@ namespace Aplikasi_Kasir
 {
     public partial class StokGudang : Form
     {
-
+        bool targetbarang = false;
+        string namadata = "";
+        string iddata = "";
+        int kuantitas = 0;
+        long harga = 0;
         MySqlConnection conn = new MySqlConnection("SERVER=localhost ;DATABASE=aplikasikasir ; UID=root ; PASSWORD= ;");
         public StokGudang()
         {
@@ -28,6 +32,7 @@ namespace Aplikasi_Kasir
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             informasi.Text = "";
             tabelutama();
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -95,12 +100,18 @@ namespace Aplikasi_Kasir
                         {
                             // Tidak ada data yang ditemukan
                             informasi.Text = "Data tidak ditemukan";
+                            targetbarang = false;
                         }
                         else
                         {
                             // Data ditemukan, tampilkan dalam DataGridView
                             dataGridView1.DataSource = ds.Tables[0];
                             informasi.Text = "";
+                            targetbarang = true;
+                            DataRow dr = ds.Tables[0].Rows[0];
+                            namadata = dr["namabarang"].ToString();
+                            iddata = dr["id"].ToString();
+                            harga = Int64.Parse(dr["hargabarang"].ToString());
                         }
                         textBox.Text = "";
                     }
@@ -132,7 +143,6 @@ namespace Aplikasi_Kasir
             catch (Exception x)
             {
                 MessageBox.Show(x + "");
-                Console.WriteLine(x);
             }
         }
 
@@ -151,6 +161,68 @@ namespace Aplikasi_Kasir
             da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void StokGudang_Load(object sender, EventArgs e)
+        {
+            dataGridView1.CurrentCell = null;
+            Cek_Produk_Tx.Focus();
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    string data = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    iddata = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    namabarang_lbl.Text = data;
+                    namadata = data;
+                    harga = Int64.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+                }
+                else if (targetbarang == true)
+                {
+                    string data = namadata;
+                    namabarang_lbl.Text = data;
+                    targetbarang = false;
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x + "");
+            }
+
+        }
+
+        private void tambaheta_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                kuantitas = (int)numericUpDown1.Value;
+
+
+                string query = "INSERT INTO stoketalase (id, namabarang, hargabarang , stoketalase, rekamwaktu) VALUES (@iddata, @namadata, @harga, @kuantitas, CURDATE());";
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@iddata", iddata);
+                    cmd.Parameters.AddWithValue("@kuantitas", kuantitas);
+                    cmd.Parameters.AddWithValue("@namadata", namadata);
+                    cmd.Parameters.AddWithValue("@harga", harga);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Produk Ditambahkan Ke ETALASE");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+
+            }
         }
     }
 }
