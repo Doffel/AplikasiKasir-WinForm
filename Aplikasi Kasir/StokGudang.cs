@@ -14,7 +14,8 @@ namespace Aplikasi_Kasir
 {
     public partial class StokGudang : Form
     {
-
+        bool targetbarang = false;
+        string namadata = "";
         MySqlConnection conn = new MySqlConnection("SERVER=localhost ;DATABASE=aplikasikasir ; UID=root ; PASSWORD= ;");
         public StokGudang()
         {
@@ -28,6 +29,7 @@ namespace Aplikasi_Kasir
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             informasi.Text = "";
             tabelutama();
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -95,12 +97,16 @@ namespace Aplikasi_Kasir
                         {
                             // Tidak ada data yang ditemukan
                             informasi.Text = "Data tidak ditemukan";
+                            targetbarang = false;
                         }
                         else
                         {
                             // Data ditemukan, tampilkan dalam DataGridView
                             dataGridView1.DataSource = ds.Tables[0];
                             informasi.Text = "";
+                            targetbarang = true;
+                            DataRow dr = ds.Tables[0].Rows[0];
+                            namadata = dr["namabarang"].ToString();
                         }
                         textBox.Text = "";
                     }
@@ -152,6 +158,37 @@ namespace Aplikasi_Kasir
 
             dataGridView1.DataSource = ds.Tables[0];
         }
+
+        private void StokGudang_Load(object sender, EventArgs e)
+        {
+            dataGridView1.CurrentCell = null;
+            Cek_Produk_Tx.Focus();
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    string data = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    namabarang_lbl.Text = data;
+                }
+                else if (targetbarang == true)
+                {
+                    string data = namadata;
+                    namabarang_lbl.Text = data;
+                    targetbarang = false;
+                    namadata = "";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
 
     }
 }

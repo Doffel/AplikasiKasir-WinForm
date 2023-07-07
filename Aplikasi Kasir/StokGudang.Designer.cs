@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             label1 = new Label();
@@ -58,6 +59,7 @@
             numericUpDown1 = new NumericUpDown();
             tambaheta_btn = new Button();
             Status_lbl = new Label();
+            button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -264,19 +266,28 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.Info;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new Padding(2);
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(3, 3);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
@@ -327,9 +338,9 @@
             tableLayoutPanel6.Location = new Point(902, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 3;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 2.094241F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 93.4555F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 4.45026159F));
             tableLayoutPanel6.Size = new Size(353, 382);
             tableLayoutPanel6.TabIndex = 4;
             // 
@@ -344,19 +355,20 @@
             tableLayoutPanel7.Controls.Add(numericUpDown1, 0, 5);
             tableLayoutPanel7.Controls.Add(tambaheta_btn, 0, 7);
             tableLayoutPanel7.Controls.Add(Status_lbl, 0, 1);
+            tableLayoutPanel7.Controls.Add(button1, 0, 6);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(3, 41);
+            tableLayoutPanel7.Location = new Point(3, 11);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 8;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 16.0771713F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 7.073955F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 13.8263664F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 11.5755625F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 10.2893887F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 13.2891293F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 6.15837765F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 20.7440071F));
-            tableLayoutPanel7.Size = new Size(347, 299);
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 12.63386F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 6.31692934F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 9.116809F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 15.9544163F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 7.122507F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 12.9346647F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 17.81374F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 17.81374F));
+            tableLayoutPanel7.Size = new Size(347, 351);
             tableLayoutPanel7.TabIndex = 0;
             // 
             // label6
@@ -365,9 +377,9 @@
             label6.Dock = DockStyle.Fill;
             label6.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(3, 144);
+            label6.Location = new Point(3, 154);
             label6.Name = "label6";
-            label6.Size = new Size(341, 31);
+            label6.Size = new Size(341, 25);
             label6.TabIndex = 5;
             label6.Text = "KUANTITAS";
             label6.TextAlign = ContentAlignment.BottomLeft;
@@ -378,9 +390,9 @@
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(3, 69);
+            label5.Location = new Point(3, 66);
             label5.Name = "label5";
-            label5.Size = new Size(341, 41);
+            label5.Size = new Size(341, 32);
             label5.TabIndex = 2;
             label5.Text = "NAMA BARANG";
             label5.TextAlign = ContentAlignment.BottomLeft;
@@ -393,7 +405,7 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(341, 48);
+            label3.Size = new Size(341, 44);
             label3.TabIndex = 0;
             label3.Text = "AMBIL STOK";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -404,28 +416,28 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(namabarang_lbl);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 113);
+            panel1.Location = new Point(3, 101);
             panel1.Name = "panel1";
-            panel1.Size = new Size(341, 28);
+            panel1.Size = new Size(341, 50);
             panel1.TabIndex = 6;
             // 
             // namabarang_lbl
             // 
             namabarang_lbl.AutoSize = true;
-            namabarang_lbl.Dock = DockStyle.Bottom;
-            namabarang_lbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            namabarang_lbl.Location = new Point(0, 5);
+            namabarang_lbl.Dock = DockStyle.Fill;
+            namabarang_lbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            namabarang_lbl.Location = new Point(0, 0);
             namabarang_lbl.Name = "namabarang_lbl";
-            namabarang_lbl.Size = new Size(59, 21);
+            namabarang_lbl.Size = new Size(72, 25);
             namabarang_lbl.TabIndex = 0;
             namabarang_lbl.Text = "Barang";
-            namabarang_lbl.TextAlign = ContentAlignment.BottomLeft;
             // 
             // numericUpDown1
             // 
+            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
             numericUpDown1.Dock = DockStyle.Fill;
             numericUpDown1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            numericUpDown1.Location = new Point(3, 178);
+            numericUpDown1.Location = new Point(3, 182);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(341, 35);
             numericUpDown1.TabIndex = 7;
@@ -436,9 +448,9 @@
             tambaheta_btn.Dock = DockStyle.Fill;
             tambaheta_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             tambaheta_btn.ForeColor = SystemColors.ButtonHighlight;
-            tambaheta_btn.Location = new Point(3, 236);
+            tambaheta_btn.Location = new Point(3, 289);
             tambaheta_btn.Name = "tambaheta_btn";
-            tambaheta_btn.Size = new Size(341, 60);
+            tambaheta_btn.Size = new Size(341, 59);
             tambaheta_btn.TabIndex = 8;
             tambaheta_btn.Text = "TAMBAH ETALASE";
             tambaheta_btn.UseVisualStyleBackColor = false;
@@ -447,12 +459,26 @@
             // 
             Status_lbl.AutoSize = true;
             Status_lbl.Dock = DockStyle.Fill;
-            Status_lbl.Location = new Point(3, 48);
+            Status_lbl.Location = new Point(3, 44);
             Status_lbl.Name = "Status_lbl";
-            Status_lbl.Size = new Size(341, 21);
+            Status_lbl.Size = new Size(341, 22);
             Status_lbl.TabIndex = 9;
             Status_lbl.Text = "Status";
             Status_lbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Tomato;
+            button1.Dock = DockStyle.Fill;
+            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(3, 227);
+            button1.Name = "button1";
+            button1.Size = new Size(341, 56);
+            button1.TabIndex = 10;
+            button1.Text = "PILIH";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // StokGudang
             // 
@@ -465,6 +491,7 @@
             Text = "Form2";
             WindowState = FormWindowState.Maximized;
             FormClosing += Form2_FormClosing;
+            Load += StokGudang_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -498,12 +525,6 @@
         private Label informasi;
         private Label label2;
         private TableLayoutPanel tableLayoutPanel5;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
         private TableLayoutPanel tableLayoutPanel6;
         private TableLayoutPanel tableLayoutPanel7;
         private Label label6;
@@ -514,5 +535,12 @@
         private Button tambaheta_btn;
         private Label Status_lbl;
         private Label namabarang_lbl;
+        private Button button1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
     }
 }
