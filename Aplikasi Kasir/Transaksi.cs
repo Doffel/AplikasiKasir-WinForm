@@ -55,21 +55,6 @@ namespace Aplikasi_Kasir
                 Application.Exit();
             }
         }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            StokGudang dialog = new StokGudang(); // Ganti Form2 dengan nama Form dialog Anda
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                // Lakukan tindakan setelah jendela dialog ditutup dengan tombol OK
-            }
-
-            MySqlDataAdapter da = new MySqlDataAdapter("select * from produk where id = " + Cek_Produk_Tx.Text, conn);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            dataGridView1.DataSource = ds.Tables[0];
-        }
 
         private void Cek_Produk_Tx_TextChanged(object sender, EventArgs e)
         {

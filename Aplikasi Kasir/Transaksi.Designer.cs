@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FormClosing += Transaksi_FormClosing;
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             button1 = new Button();
@@ -232,7 +231,6 @@
             Cek_Produk_Btn.TabIndex = 1;
             Cek_Produk_Btn.Text = "TAMBAH";
             Cek_Produk_Btn.UseVisualStyleBackColor = false;
-            Cek_Produk_Btn.Click += button4_Click;
             // 
             // tableLayoutPanel4
             // 
@@ -515,17 +513,18 @@
             tableLayoutPanel11.Size = new Size(200, 100);
             tableLayoutPanel11.TabIndex = 0;
             // 
-            // Form1
+            // Transaksi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
             Controls.Add(tableLayoutPanel1);
-            Name = "Form1";
+            Name = "Transaksi";
             SizeGripStyle = SizeGripStyle.Show;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
+            FormClosing += Transaksi_FormClosing;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();

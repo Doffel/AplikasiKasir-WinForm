@@ -82,6 +82,7 @@
             Cek_Produk_Tx.Name = "Cek_Produk_Tx";
             Cek_Produk_Tx.Size = new Size(1252, 87);
             Cek_Produk_Tx.TabIndex = 1;
+            Cek_Produk_Tx.TextChanged += Cek_Produk_Tx_TextChanged;
             // 
             // tableLayoutPanel3
             // 
@@ -261,21 +262,25 @@
             // 
             Column1.HeaderText = "KODE BARANG";
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "NAMA BARANG";
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
             Column3.HeaderText = "STOK ETALASE";
             Column3.Name = "Column3";
+            Column3.ReadOnly = true;
             // 
             // Column4
             // 
             Column4.HeaderText = "REKAM WAKTU";
             Column4.Name = "Column4";
+            Column4.ReadOnly = true;
             // 
             // tableLayoutPanel6
             // 
@@ -294,13 +299,16 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.DarkOrange;
             button1.Dock = DockStyle.Fill;
+            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.FromArgb(64, 64, 64);
             button1.Location = new Point(3, 338);
             button1.Name = "button1";
             button1.Size = new Size(495, 56);
             button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "AMBIL STOK";
+            button1.UseVisualStyleBackColor = false;
             // 
             // dataGridView2
             // 
