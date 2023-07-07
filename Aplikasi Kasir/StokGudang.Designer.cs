@@ -454,6 +454,7 @@
             tambaheta_btn.TabIndex = 8;
             tambaheta_btn.Text = "TAMBAH ETALASE";
             tambaheta_btn.UseVisualStyleBackColor = false;
+            tambaheta_btn.Click += tambaheta_btn_Click;
             // 
             // Status_lbl
             // 

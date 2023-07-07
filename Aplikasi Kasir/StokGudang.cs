@@ -16,6 +16,9 @@ namespace Aplikasi_Kasir
     {
         bool targetbarang = false;
         string namadata = "";
+        string iddata = "";
+        int kuantitas = 0;
+        long harga = 0;
         MySqlConnection conn = new MySqlConnection("SERVER=localhost ;DATABASE=aplikasikasir ; UID=root ; PASSWORD= ;");
         public StokGudang()
         {
@@ -107,6 +110,8 @@ namespace Aplikasi_Kasir
                             targetbarang = true;
                             DataRow dr = ds.Tables[0].Rows[0];
                             namadata = dr["namabarang"].ToString();
+                            iddata = dr["id"].ToString();
+                            harga = Int64.Parse(dr["hargabarang"].ToString());
                         }
                         textBox.Text = "";
                     }
@@ -138,7 +143,6 @@ namespace Aplikasi_Kasir
             catch (Exception x)
             {
                 MessageBox.Show(x + "");
-                Console.WriteLine(x);
             }
         }
 
@@ -171,14 +175,42 @@ namespace Aplikasi_Kasir
                 if (dataGridView1.SelectedRows.Count == 1)
                 {
                     string data = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    iddata = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                     namabarang_lbl.Text = data;
+                    namadata = data;
+                    harga = Int64.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
                 }
                 else if (targetbarang == true)
                 {
                     string data = namadata;
                     namabarang_lbl.Text = data;
                     targetbarang = false;
-                    namadata = "";
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x + "");
+            }
+
+        }
+
+        private void tambaheta_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                kuantitas = (int)numericUpDown1.Value;
+
+
+                string query = "INSERT INTO stoketalase (id, namabarang, hargabarang , stoketalase, rekamwaktu) VALUES (@iddata, @namadata, @harga, @kuantitas, CURDATE());";
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@iddata", iddata);
+                    cmd.Parameters.AddWithValue("@kuantitas", kuantitas);
+                    cmd.Parameters.AddWithValue("@namadata", namadata);
+                    cmd.Parameters.AddWithValue("@harga", harga);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Produk Ditambahkan Ke ETALASE");
                 }
             }
             catch (Exception)
@@ -186,9 +218,11 @@ namespace Aplikasi_Kasir
 
                 throw;
             }
+            finally
+            {
+                conn.Close();
 
+            }
         }
-
-
     }
 }
