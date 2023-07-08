@@ -110,6 +110,7 @@
             stoketalase_btn.TabIndex = 2;
             stoketalase_btn.Text = "STOK ETALASE";
             stoketalase_btn.UseVisualStyleBackColor = false;
+            stoketalase_btn.Click += stoketalase_btn_Click;
             // 
             // stokgudang_btn
             // 
@@ -170,6 +171,7 @@
             transaksi_btn.TabIndex = 5;
             transaksi_btn.Text = "TRANSAKSI";
             transaksi_btn.UseVisualStyleBackColor = false;
+            transaksi_btn.Click += transaksi_btn_Click;
             // 
             // cekharga_btn
             // 
@@ -340,6 +342,8 @@
             Name = "StokEtalase";
             Text = "StokEtalase";
             WindowState = FormWindowState.Maximized;
+            FormClosing += stoketalase_FormClosing;
+            Resize += etalase_resize;
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

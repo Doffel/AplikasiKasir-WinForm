@@ -23,12 +23,6 @@ namespace Aplikasi_Kasir
         public StokGudang()
         {
             InitializeComponent();
-
-            // Atur ukuran form menjadi maksimum saat aplikasi dimulai
-            this.WindowState = FormWindowState.Maximized;
-            this.MinimumSize = this.Size; // Set ukuran minimal sama dengan ukuran saat ini
-            this.MaximumSize = new Size(int.MaxValue, int.MaxValue);
-            this.Resize += Form2_Resize; // Tambahkan event handler Resize saat inisialisasi form
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             informasi.Text = "";
             tabelutama();
@@ -37,32 +31,25 @@ namespace Aplikasi_Kasir
         private void button1_Click(object sender, EventArgs e)
         {
             Transaksi transaksi = new Transaksi();
-            this.Hide();
             transaksi.Show();
-
-
+            this.Hide();
         }
 
-        private void Form2_Resize(object sender, EventArgs e)
+        private void StokGudang_Resize(object sender, EventArgs e)
         {
-            if (this.Width == 1280 && this.Height == 720)
-            {
-
-                // Set ukuran font pada label sesuai dengan kebutuhan
-                label1.Font = new Font(label1.Font.FontFamily, 32, FontStyle.Bold);
-                transaksi_btn.Font = new Font(transaksi_btn.Font.FontFamily, 18);
-                cekharga_btn.Font = new Font(transaksi_btn.Font.FontFamily, 18);
-                Cek_Produk_Tx.Font = new Font(Cek_Produk_Tx.Font.FontFamily, 45);
-            }
-            else
-            {
-                // Set ukuran font kembali ke ukuran default jika tidak sesuai ukuran form 1280x720
-                label1.Font = new Font(label1.Font.FontFamily, 50, FontStyle.Bold);
-                transaksi_btn.Font = new Font(transaksi_btn.Font.FontFamily, 24);
-                cekharga_btn.Font = new Font(transaksi_btn.Font.FontFamily, 24);
-                Cek_Produk_Tx.Font = new Font(Cek_Produk_Tx.Font.FontFamily, 74);
-                label1.Padding = new Padding(5, 20, 0, 0);
-            }
+            label1.Font = new Font(label1.Font.FontFamily, this.Width / 40, FontStyle.Bold);
+            label2.Font = new Font(label2.Font.FontFamily, this.Width / 71, FontStyle.Bold);
+            label3.Font = new Font(label3.Font.FontFamily, this.Width / 53, FontStyle.Bold);
+            label4.Font = new Font(label4.Font.FontFamily, this.Width / 71, FontStyle.Bold);
+            label5.Font = new Font(label5.Font.FontFamily, this.Width / 80, FontStyle.Bold);
+            label6.Font = new Font(label6.Font.FontFamily, this.Width / 80, FontStyle.Bold);
+            Status_lbl.Font = new Font(label6.Font.FontFamily, this.Width / 142, FontStyle.Bold);
+            transaksi_btn.Font = new Font(transaksi_btn.Font.FontFamily, this.Width / 71, FontStyle.Bold);
+            cekharga_btn.Font = new Font(transaksi_btn.Font.FontFamily, this.Width / 71, FontStyle.Bold);
+            stokgudang_btn.Font = new Font(transaksi_btn.Font.FontFamily, this.Width / 106, FontStyle.Bold);
+            stoketalase_btn.Font = new Font(transaksi_btn.Font.FontFamily, this.Width / 106, FontStyle.Bold);
+            Cek_Produk_Tx.Font = new Font(Cek_Produk_Tx.Font.FontFamily, this.Width / 28, FontStyle.Bold);
+            label1.Padding = new Padding(5, 20, 0, 0);
         }
 
         private void Cek_Produk_Tx_TextChanged(object sender, EventArgs e)
@@ -202,7 +189,7 @@ namespace Aplikasi_Kasir
             try
             {
                 kuantitas = (int)numericUpDown1.Value;
-                MySqlDataAdapter da = new MySqlDataAdapter("select * from stoketalase where id = '"+ iddata +"'", conn);
+                MySqlDataAdapter da = new MySqlDataAdapter("select * from stoketalase where id = '" + iddata + "'", conn);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 conn.Open();
@@ -233,7 +220,7 @@ namespace Aplikasi_Kasir
                     }
                 }
 
-                
+
             }
             catch (Exception)
             {
@@ -252,11 +239,27 @@ namespace Aplikasi_Kasir
         {
             numericUpDown1.Value = 0;
             tabelutama();
+            Cek_Produk_Tx.Text = string.Empty;
+            informasi.Text = string.Empty;
+            namabarang_lbl.Text = string.Empty;
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void stoketalase_btn_Click(object sender, EventArgs e)
+        {
+            StokEtalase se = new StokEtalase();
+            se.Show();
+            this.Hide();
+        }
+
+        private void stokgudang_btn_Click(object sender, EventArgs e)
+        {
+            this.Show();
         }
     }
 }

@@ -87,10 +87,34 @@ namespace Aplikasi_Kasir
 
             }
         }
-
+        private void stoketalase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit();
+            }
+        }
         private void stokgudang_btn_Click(object sender, EventArgs e)
         {
+            StokGudang sg = new StokGudang();
+            sg.Show();
+            this.Hide();
+        }
 
+        private void stoketalase_btn_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void transaksi_btn_Click(object sender, EventArgs e)
+        {
+            Transaksi tr = new Transaksi();
+            tr.Show();
+            this.Hide();
+        }
+        private void etalase_resize(object sender, EventArgs e)
+        {
+            label1.Font = new Font(label1.Font.FontFamily, this.Width / 40, FontStyle.Bold);
         }
     }
 }
