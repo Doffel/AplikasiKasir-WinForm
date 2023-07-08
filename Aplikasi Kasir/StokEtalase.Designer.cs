@@ -123,6 +123,7 @@
             stokgudang_btn.TabIndex = 1;
             stokgudang_btn.Text = "STOK GUDANG";
             stokgudang_btn.UseVisualStyleBackColor = false;
+            stokgudang_btn.Click += stokgudang_btn_Click;
             // 
             // tableLayoutPanel2
             // 

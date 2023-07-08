@@ -193,6 +193,7 @@
             etalase_btn.TabIndex = 1;
             etalase_btn.Text = "STOK ETALASE";
             etalase_btn.UseVisualStyleBackColor = false;
+            etalase_btn.Click += etalase_btn_Click;
             // 
             // tableLayoutPanel3
             // 

@@ -87,5 +87,10 @@ namespace Aplikasi_Kasir
 
             }
         }
+
+        private void stokgudang_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

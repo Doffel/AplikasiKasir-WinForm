@@ -47,6 +47,7 @@ namespace Aplikasi_Kasir
         {
             if (this.Width == 1280 && this.Height == 720)
             {
+
                 // Set ukuran font pada label sesuai dengan kebutuhan
                 label1.Font = new Font(label1.Font.FontFamily, 32, FontStyle.Bold);
                 transaksi_btn.Font = new Font(transaksi_btn.Font.FontFamily, 18);
@@ -161,6 +162,8 @@ namespace Aplikasi_Kasir
             da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.CurrentCell = null;
+            Cek_Produk_Tx.Focus();
         }
 
         private void StokGudang_Load(object sender, EventArgs e)
@@ -199,19 +202,38 @@ namespace Aplikasi_Kasir
             try
             {
                 kuantitas = (int)numericUpDown1.Value;
-
-
-                string query = "INSERT INTO stoketalase (id, namabarang, hargabarang , stoketalase, rekamwaktu) VALUES (@iddata, @namadata, @harga, @kuantitas, CURDATE());";
+                MySqlDataAdapter da = new MySqlDataAdapter("select * from stoketalase where id = '"+ iddata +"'", conn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                if (ds.Tables[0].Rows.Count == 0)
                 {
-                    cmd.Parameters.AddWithValue("@iddata", iddata);
-                    cmd.Parameters.AddWithValue("@kuantitas", kuantitas);
-                    cmd.Parameters.AddWithValue("@namadata", namadata);
-                    cmd.Parameters.AddWithValue("@harga", harga);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Produk Ditambahkan Ke ETALASE");
+                    string query = "INSERT INTO stoketalase (id, namabarang, hargabarang , stoketalase, rekamwaktu) VALUES (@iddata, @namadata, @harga, @kuantitas, CURDATE());";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@iddata", iddata);
+                        cmd.Parameters.AddWithValue("@kuantitas", kuantitas);
+                        cmd.Parameters.AddWithValue("@namadata", namadata);
+                        cmd.Parameters.AddWithValue("@harga", harga);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Produk Ditambahkan Ke ETALASE");
+                    }
                 }
+                else
+                {
+                    string query = "UPDATE stoketalase SET namabarang = @namadata, hargabarang = @harga ,stoketalase = stoketalase + @kuantitas, rekamwaktu = CURDATE() where id = @iddata";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@iddata", iddata);
+                        cmd.Parameters.AddWithValue("@kuantitas", kuantitas);
+                        cmd.Parameters.AddWithValue("@namadata", namadata);
+                        cmd.Parameters.AddWithValue("@harga", harga);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Stok Produk Etalase Berhasil Diperbaharui");
+                    }
+                }
+
+                
             }
             catch (Exception)
             {
@@ -221,8 +243,20 @@ namespace Aplikasi_Kasir
             finally
             {
                 conn.Close();
-
+                tabelutama();
+                numericUpDown1.Value = 0;
             }
+        }
+
+        private void refresh_btn_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Value = 0;
+            tabelutama();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

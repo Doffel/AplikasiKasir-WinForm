@@ -120,5 +120,6 @@ namespace Aplikasi_Kasir
             st.Show();
             this.Hide();
         }
+
     }
 }

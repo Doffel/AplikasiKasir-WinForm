@@ -40,15 +40,10 @@
             stokgudang_btn = new Button();
             tableLayoutPanel3 = new TableLayoutPanel();
             Cek_Produk_Tx = new TextBox();
+            refresh_btn = new Button();
             informasi = new Label();
             label2 = new Label();
             tableLayoutPanel5 = new TableLayoutPanel();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             tableLayoutPanel6 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
             label6 = new Label();
@@ -60,16 +55,25 @@
             tambaheta_btn = new Button();
             Status_lbl = new Label();
             button1 = new Button();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            label4 = new Label();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -87,12 +91,13 @@
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.3765011F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5.12550068F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.4161358F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5.1255F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 57.9585037F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.3627024F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 3.23054338F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 59.7650528F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 2.99785352F));
             tableLayoutPanel1.Size = new Size(1264, 681);
             tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // tableLayoutPanel2
             // 
@@ -197,11 +202,13 @@
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Controls.Add(Cek_Produk_Tx, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Controls.Add(refresh_btn, 1, 0);
             tableLayoutPanel3.Location = new Point(3, 141);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
@@ -219,9 +226,24 @@
             Cek_Produk_Tx.ForeColor = Color.Black;
             Cek_Produk_Tx.Location = new Point(3, 3);
             Cek_Produk_Tx.Name = "Cek_Produk_Tx";
-            Cek_Produk_Tx.Size = new Size(1252, 71);
+            Cek_Produk_Tx.Size = new Size(1107, 71);
             Cek_Produk_Tx.TabIndex = 1;
             Cek_Produk_Tx.TextChanged += Cek_Produk_Tx_TextChanged;
+            // 
+            // refresh_btn
+            // 
+            refresh_btn.BackColor = Color.Bisque;
+            refresh_btn.BackgroundImageLayout = ImageLayout.Stretch;
+            refresh_btn.Dock = DockStyle.Fill;
+            refresh_btn.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            refresh_btn.ForeColor = Color.FromArgb(64, 64, 64);
+            refresh_btn.Location = new Point(1116, 3);
+            refresh_btn.Name = "refresh_btn";
+            refresh_btn.Size = new Size(139, 79);
+            refresh_btn.TabIndex = 2;
+            refresh_btn.Text = "REFRESH";
+            refresh_btn.UseVisualStyleBackColor = false;
+            refresh_btn.Click += refresh_btn_Click;
             // 
             // informasi
             // 
@@ -229,7 +251,7 @@
             informasi.Dock = DockStyle.Fill;
             informasi.Location = new Point(3, 229);
             informasi.Name = "informasi";
-            informasi.Size = new Size(1258, 34);
+            informasi.Size = new Size(1258, 22);
             informasi.TabIndex = 3;
             informasi.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -251,15 +273,182 @@
             tableLayoutPanel5.ColumnCount = 2;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.46264F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.5373611F));
-            tableLayoutPanel5.Controls.Add(dataGridView1, 0, 0);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel6, 1, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel8, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 266);
+            tableLayoutPanel5.Location = new Point(3, 254);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(1258, 388);
+            tableLayoutPanel5.Size = new Size(1258, 401);
             tableLayoutPanel5.TabIndex = 5;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 1;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Controls.Add(tableLayoutPanel7, 0, 1);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
+            tableLayoutPanel6.Location = new Point(902, 3);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 3;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 2.094241F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 93.4555F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 4.45026159F));
+            tableLayoutPanel6.Size = new Size(353, 395);
+            tableLayoutPanel6.TabIndex = 4;
+            // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.ColumnCount = 1;
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel7.Controls.Add(label6, 0, 4);
+            tableLayoutPanel7.Controls.Add(label5, 0, 2);
+            tableLayoutPanel7.Controls.Add(label3, 0, 0);
+            tableLayoutPanel7.Controls.Add(panel1, 0, 3);
+            tableLayoutPanel7.Controls.Add(numericUpDown1, 0, 5);
+            tableLayoutPanel7.Controls.Add(tambaheta_btn, 0, 7);
+            tableLayoutPanel7.Controls.Add(Status_lbl, 0, 1);
+            tableLayoutPanel7.Controls.Add(button1, 0, 6);
+            tableLayoutPanel7.Dock = DockStyle.Fill;
+            tableLayoutPanel7.Location = new Point(3, 11);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 8;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 12.63386F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 6.31692934F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 9.116809F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 15.9544163F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 7.122507F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 12.9346647F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 17.81374F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 17.81374F));
+            tableLayoutPanel7.Size = new Size(347, 363);
+            tableLayoutPanel7.TabIndex = 0;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Fill;
+            label6.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(3, 158);
+            label6.Name = "label6";
+            label6.Size = new Size(341, 25);
+            label6.TabIndex = 5;
+            label6.Text = "KUANTITAS";
+            label6.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Fill;
+            label5.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(3, 67);
+            label5.Name = "label5";
+            label5.Size = new Size(341, 33);
+            label5.TabIndex = 2;
+            label5.Text = "NAMA BARANG";
+            label5.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
+            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(341, 45);
+            label3.TabIndex = 0;
+            label3.Text = "AMBIL STOK";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(namabarang_lbl);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 103);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(341, 52);
+            panel1.TabIndex = 6;
+            // 
+            // namabarang_lbl
+            // 
+            namabarang_lbl.AutoSize = true;
+            namabarang_lbl.Dock = DockStyle.Fill;
+            namabarang_lbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            namabarang_lbl.Location = new Point(0, 0);
+            namabarang_lbl.Name = "namabarang_lbl";
+            namabarang_lbl.Size = new Size(72, 25);
+            namabarang_lbl.TabIndex = 0;
+            namabarang_lbl.Text = "Barang";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
+            numericUpDown1.Dock = DockStyle.Fill;
+            numericUpDown1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            numericUpDown1.Location = new Point(3, 186);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(341, 35);
+            numericUpDown1.TabIndex = 7;
+            // 
+            // tambaheta_btn
+            // 
+            tambaheta_btn.BackColor = Color.DodgerBlue;
+            tambaheta_btn.Dock = DockStyle.Fill;
+            tambaheta_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            tambaheta_btn.ForeColor = SystemColors.ButtonHighlight;
+            tambaheta_btn.Location = new Point(3, 297);
+            tambaheta_btn.Name = "tambaheta_btn";
+            tambaheta_btn.Size = new Size(341, 63);
+            tambaheta_btn.TabIndex = 8;
+            tambaheta_btn.Text = "TAMBAH ETALASE";
+            tambaheta_btn.UseVisualStyleBackColor = false;
+            tambaheta_btn.Click += tambaheta_btn_Click;
+            // 
+            // Status_lbl
+            // 
+            Status_lbl.AutoSize = true;
+            Status_lbl.Dock = DockStyle.Fill;
+            Status_lbl.Location = new Point(3, 45);
+            Status_lbl.Name = "Status_lbl";
+            Status_lbl.Size = new Size(341, 22);
+            Status_lbl.TabIndex = 9;
+            Status_lbl.Text = "Status";
+            Status_lbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Tomato;
+            button1.Dock = DockStyle.Fill;
+            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(3, 233);
+            button1.Name = "button1";
+            button1.Size = new Size(341, 58);
+            button1.TabIndex = 10;
+            button1.Text = "PILIH";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 1;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Controls.Add(dataGridView1, 0, 1);
+            tableLayoutPanel8.Controls.Add(label4, 0, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(3, 3);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 2;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 92F));
+            tableLayoutPanel8.Size = new Size(893, 395);
+            tableLayoutPanel8.TabIndex = 5;
             // 
             // dataGridView1
             // 
@@ -286,13 +475,13 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 3);
+            dataGridView1.Location = new Point(3, 34);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(893, 382);
-            dataGridView1.TabIndex = 3;
+            dataGridView1.Size = new Size(887, 358);
+            dataGridView1.TabIndex = 5;
             // 
             // Column1
             // 
@@ -329,157 +518,17 @@
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
             // 
-            // tableLayoutPanel6
+            // label4
             // 
-            tableLayoutPanel6.ColumnCount = 1;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Controls.Add(tableLayoutPanel7, 0, 1);
-            tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(902, 3);
-            tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 3;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 2.094241F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 93.4555F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 4.45026159F));
-            tableLayoutPanel6.Size = new Size(353, 382);
-            tableLayoutPanel6.TabIndex = 4;
-            // 
-            // tableLayoutPanel7
-            // 
-            tableLayoutPanel7.ColumnCount = 1;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Controls.Add(label6, 0, 4);
-            tableLayoutPanel7.Controls.Add(label5, 0, 2);
-            tableLayoutPanel7.Controls.Add(label3, 0, 0);
-            tableLayoutPanel7.Controls.Add(panel1, 0, 3);
-            tableLayoutPanel7.Controls.Add(numericUpDown1, 0, 5);
-            tableLayoutPanel7.Controls.Add(tambaheta_btn, 0, 7);
-            tableLayoutPanel7.Controls.Add(Status_lbl, 0, 1);
-            tableLayoutPanel7.Controls.Add(button1, 0, 6);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(3, 11);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 8;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 12.63386F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 6.31692934F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 9.116809F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 15.9544163F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 7.122507F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 12.9346647F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 17.81374F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 17.81374F));
-            tableLayoutPanel7.Size = new Size(347, 351);
-            tableLayoutPanel7.TabIndex = 0;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Dock = DockStyle.Fill;
-            label6.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(3, 154);
-            label6.Name = "label6";
-            label6.Size = new Size(341, 25);
-            label6.TabIndex = 5;
-            label6.Text = "KUANTITAS";
-            label6.TextAlign = ContentAlignment.BottomLeft;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Dock = DockStyle.Fill;
-            label5.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(3, 66);
-            label5.Name = "label5";
-            label5.Size = new Size(341, 32);
-            label5.TabIndex = 2;
-            label5.Text = "NAMA BARANG";
-            label5.TextAlign = ContentAlignment.BottomLeft;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Dock = DockStyle.Fill;
-            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(341, 44);
-            label3.TabIndex = 0;
-            label3.Text = "AMBIL STOK";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(namabarang_lbl);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 101);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(341, 50);
-            panel1.TabIndex = 6;
-            // 
-            // namabarang_lbl
-            // 
-            namabarang_lbl.AutoSize = true;
-            namabarang_lbl.Dock = DockStyle.Fill;
-            namabarang_lbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            namabarang_lbl.Location = new Point(0, 0);
-            namabarang_lbl.Name = "namabarang_lbl";
-            namabarang_lbl.Size = new Size(72, 25);
-            namabarang_lbl.TabIndex = 0;
-            namabarang_lbl.Text = "Barang";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown1.Dock = DockStyle.Fill;
-            numericUpDown1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            numericUpDown1.Location = new Point(3, 182);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(341, 35);
-            numericUpDown1.TabIndex = 7;
-            // 
-            // tambaheta_btn
-            // 
-            tambaheta_btn.BackColor = Color.DodgerBlue;
-            tambaheta_btn.Dock = DockStyle.Fill;
-            tambaheta_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tambaheta_btn.ForeColor = SystemColors.ButtonHighlight;
-            tambaheta_btn.Location = new Point(3, 289);
-            tambaheta_btn.Name = "tambaheta_btn";
-            tambaheta_btn.Size = new Size(341, 59);
-            tambaheta_btn.TabIndex = 8;
-            tambaheta_btn.Text = "TAMBAH ETALASE";
-            tambaheta_btn.UseVisualStyleBackColor = false;
-            tambaheta_btn.Click += tambaheta_btn_Click;
-            // 
-            // Status_lbl
-            // 
-            Status_lbl.AutoSize = true;
-            Status_lbl.Dock = DockStyle.Fill;
-            Status_lbl.Location = new Point(3, 44);
-            Status_lbl.Name = "Status_lbl";
-            Status_lbl.Size = new Size(341, 22);
-            Status_lbl.TabIndex = 9;
-            Status_lbl.Text = "Status";
-            Status_lbl.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Tomato;
-            button1.Dock = DockStyle.Fill;
-            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(3, 227);
-            button1.Name = "button1";
-            button1.Size = new Size(341, 56);
-            button1.TabIndex = 10;
-            button1.Text = "PILIH";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
+            label4.AutoSize = true;
+            label4.Dock = DockStyle.Fill;
+            label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(887, 31);
+            label4.TabIndex = 6;
+            label4.Text = "DATA GUDANG";
+            label4.TextAlign = ContentAlignment.TopCenter;
             // 
             // StokGudang
             // 
@@ -501,13 +550,15 @@
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel7.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -537,11 +588,14 @@
         private Label Status_lbl;
         private Label namabarang_lbl;
         private Button button1;
+        private Button refresh_btn;
+        private TableLayoutPanel tableLayoutPanel8;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private Label label4;
     }
 }
